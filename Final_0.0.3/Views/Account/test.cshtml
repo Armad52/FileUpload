@@ -1,0 +1,127 @@
+﻿@model IEnumerable<Final_0._0._3.Models.FileModel>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf8'>
+    <title>Add documents - Printbox</title>
+
+    <link href="~/css/StyleSheet1.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="~/js/JavaScript.js" type="text/javascript"></script>
+    <link href='/favicon.png' rel='shortcut icon'>
+    <meta content="authenticity_token" name="csrf-param" />
+    <meta content="7g3C3VijMGaov/e3Y6qcRlQ+EvzfyEmSw2QiVoirXks=" name="csrf-token" />
+</head>
+<body class=''>
+    <script src="~/js/JavaScript1.js" type="text/javascript"></script>
+    <div id='container'>
+        <div id='navbar'>
+            <div class='container'>
+                <div class='navbar-header'>
+                    <button class='navbar-toggle' data-target='#bs-example-navbar-collapse-1' data-toggle='collapse' type='button'>
+                        <span class='sr-only'>Menu</span>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/assets/images/icons8-print-96-96x96.png" alt="CopyBox" style="height: 3rem;">
+                    </a>
+                </div>
+                <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <ul class='session'>
+                            <li class='active'>
+                                <a href="/myaccount/account">
+                                    <i class='icon-user icon-white'></i>
+                                    Здравствуйте, @User.Identity.Name!
+                                </a>
+                            </li>
+                            <li>
+                                <form method="post" asp-controller="Account" asp-action="Logout">
+                                    <button type="submit" class="btn btn-primary display-3">Выход</button>
+                                </form>
+
+                            </li>
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class='container-inner'>
+            <aside id='sidebar'>
+                <p id='available_credits'>
+                    <span>
+                        <span class='credits_amount'>0</span>
+                        credits
+                    </span>
+                </p>
+                <nav>
+                    <ol>
+                        <li class='active'>
+                            <a asp-area="" asp-controller="Account" asp-action="import">Добавить документ</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Account" asp-action="account">Список документов</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Account" asp-action="history">История</a>
+                        </li>
+
+                        @*<li>
+                            <a asp-area="" asp-controller="Account" asp-action="settings">Настройки</a>
+                        </li>*@
+                    </ol>
+                </nav>
+            </aside>
+            <div id='content'>
+
+
+                <div id='import'>
+                    <div id='upload'>
+                        <h1>Загрузить документы</h1>
+                        <p>
+                            Загрузите документы или изображения в очередь печати. Добавленные документы доступны для печати в любом киоске Copybox..
+                        </p>
+                        <div droppable='true' id='dropzone'>
+                            <span>Drop documents here</span>
+                        </div>
+                        <form asp-action="AddFile" asp-controller="Account" method="post" enctype="multipart/form-data">
+                            <input type="file" name="uploadedFile" class="alert-danger" accept=".png, .jpg, .jpeg" /><br>
+                            <input type="submit" id="button1" value="Загрузить" class="btn btn-danger" />
+                            <script>
+                                button1.onclick = function () {
+                                    alert('Файл добавлен!');
+
+                                };
+                            </script>
+                        </form>
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class='container'>
+                <ul>
+                    <li class='disabled'>
+                        <a href='#'>
+                            CopyBox © 2021
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

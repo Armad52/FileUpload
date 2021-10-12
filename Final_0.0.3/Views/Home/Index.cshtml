@@ -1,0 +1,292 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <title>Home</title>
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+    <link rel="stylesheet" href="assets/tether/tether.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+    <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+</head>
+<body>
+
+    <section class="menu menu2 cid-sAnM6OmkCD" once="menu" id="menu2-k">
+
+        <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+            <div class="container">
+                <div class="navbar-brand">
+                    <span class="navbar-logo">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <img src="assets/images/icons8-print-96-96x96.png" alt="Mobirise" style="height: 3rem;">
+                        </a>
+                    </span>
+                    <span class="navbar-caption-wrap"><a class="navbar-caption text-danger display-7" asp-area="" asp-controller="Home" asp-action="Index">CopyBox</a></span>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                        <li class="nav-item"><a class="nav-link link text-black display-4" asp-area="" asp-controller="Home" asp-action="Index">О нас</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black display-4" asp-area="" asp-controller="Home" asp-action="Index">Помощь</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black display-4" asp-area="" asp-controller="Home" asp-action="Index">Партнерство</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black display-4" asp-area="" asp-controller="Home" asp-action="Index">Реклама</a></li>
+                    </ul>
+                    @*<partial name="_LoginPartial" />*@
+                <div class="navbar-buttons mbr-section-btn">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                            
+                            
+                    <form class="form-inline" method="post" asp-controller="Account" asp-action="Logout">
+                        <a class="nav-link link text-black display-4" asp-area="" asp-page="" title="Manage">Hello @User.Identity.Name!</a>
+                        <button type="submit" class="btn btn-primary display-4">Выход</button>
+                    </form>
+                        
+                    }
+                    else
+                    {
+                        
+                            <a class="btn btn-primary display-4" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
+                        
+                        
+                            <a class="btn btn-primary display-4" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
+                        
+                    }
+                    @*<a class="btn btn-primary display-4" href="https://mobiri.se">Войти</a>*@
+                </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <section class="header19 cid-sAnREmy9cH mbr-fullscreen mbr-parallax-background" id="header19-o">
+
+
+
+        <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(35, 35, 35);">
+        </div>
+
+        <div class="container">
+            <div class="media-container">
+                <div class="col-md-12 align-center">
+                    <h1 class="mbr-section-title mbr-white mbr-bold mbr-fonts-style mb-3 display-5">СЕТЬ КИОСКОВ САМООБСЛУЖИВАНИЯ ДЛЯ ПЕЧАТИ ДОКУМЕНТОВ</h1>
+                    <p class="mbr-text mbr-white mbr-fonts-style display-7">
+                        Решение для печати документов на ходу для всех, размещённых во всех общественных местах с 24/7 доступностью.
+                    </p>
+                    <div class="mbr-section-btn align-center"><a class="btn btn-danger display-4" asp-controller="Account" asp-action="Login">Попробовать<br></a></div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="card-box align-center">
+                                    <a asp-controller="Account" asp-action="Login"><span class="mbr-iconfont mobi-mbri-layers mobi-mbri"></span></a>
+                                    <h4 class="card-title align-center mbr-black mbr-fonts-style display-7"><strong>Готовые шаблоны</strong></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="card-box align-center">
+                                    <a asp-controller="Account" asp-action="Login"><span class="mbr-iconfont mobi-mbri-download mobi-mbri"></span></a>
+                                    <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
+                                        <strong>Загрузить документ</strong>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="card-box align-center">
+                                    <a asp-controller="Account" asp-action="Login"><span class="mbr-iconfont mbri-print"></span></a>
+                                    <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
+                                        <strong>Печать документов</strong>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="card-box align-center">
+                                    <a asp-controller="Account" asp-action="Login"><span class="mbr-iconfont mobi-mbri-pages mobi-mbri"></span></a>
+                                    <h4 class="card-title align-center mbr-black mbr-fonts-style display-7"><strong>Сканировать</strong></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features23 cid-sAoAEq4GlG" id="features23-u">
+
+
+
+
+        <div class="container">
+            <div class="card-wrapper">
+                <div class="card-box align-left">
+                    <h4 class="mbr-section-title mbr-fonts-style display-2">
+                        <strong>Что нужно сделать?</strong>
+                    </h4>
+
+
+                </div>
+            </div>
+            <!-- col-12 col-md-6 col-lg-4 -->
+            <div class="row justify-content-center content-row mt-4">
+                <div class="card p-4 p-md-3 col-md-6 col-lg-3">
+                    <div class="card-box">
+                        <div class="title">
+                            <span class="num mbr-fonts-style display-1"><strong>01.</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            <strong>Зарегистри</strong><br><strong>роваться на сайте&nbsp;</strong>
+                        </h4>
+                        @*<p class="mbr-text card-text mbr-fonts-style display-7">
+                            Mobirise is perfect for non-techies who are not familiar with the intricacies of web
+                            development.
+                        </p>*@
+                    </div>
+                </div>
+                <div class="card p-4 p-md-3 col-md-6 col-lg-3">
+                    <div class="card-box">
+                        <div class="title">
+                            <span class="num mbr-fonts-style display-1"><strong>02.</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            <strong>Загрузить файл</strong>
+                        </h4>
+                        @*<p class="mbr-text card-text mbr-fonts-style display-7">
+                            Mobirise is perfect for non-techies who are not familiar with the intricacies of web
+                            development.
+                        </p>*@
+                    </div>
+                </div>
+                <div class="card p-4 p-md-3 col-md-6 col-lg-3">
+                    <div class="card-box">
+                        <div class="title">
+                            <span class="num mbr-fonts-style display-1"><strong>03.</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5"><strong>Найти ближайший терминал</strong></h4>
+                        @*<p class="mbr-text card-text mbr-fonts-style display-7">
+                            Mobirise is perfect for non-techies who are not familiar with the intricacies of web
+                            development.
+                        </p>*@
+                    </div>
+                </div>
+                <div class="card p-4 p-md-3 col-md-6 col-lg-3">
+                    <div class="card-box">
+                        <div class="title">
+                            <span class="num mbr-fonts-style display-1"><strong>04.</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            <strong>Войти в личный кабинет</strong>
+                        </h4>
+                        @*<p class="mbr-text card-text mbr-fonts-style display-7">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </p>*@
+                    </div>
+                </div>
+                <div class="card p-4 p-md-3 col-md-6 col-lg-3">
+                    <div class="card-box">
+                        <div class="title">
+                            <span class="num mbr-fonts-style display-1"><strong>05.</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            <strong>Выбрать документ</strong>
+                        </h4>
+                        @*<p class="mbr-text card-text mbr-fonts-style display-7">
+                            Mobirise is perfect for non-techies who are not familiar with the intricacies of web
+                            development.
+                        </p>*@
+                    </div>
+                </div>
+                <div class="card p-4 p-md-3 col-md-6 col-lg-3">
+                    <div class="card-box">
+                        <div class="title">
+                            <span class="num mbr-fonts-style display-1"><strong>06.</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            <strong>Оплатить за печать</strong>
+                        </h4>
+                        @*<p class="mbr-text card-text mbr-fonts-style display-7">
+                            Mobirise is perfect for non-techies who are not familiar with the intricacies of web
+                            development.
+                        </p>*@
+                    </div>
+                </div>
+                <div class="card p-4 p-md-3 col-md-6 col-lg-3">
+                    <div class="card-box">
+                        <div class="title">
+                            <span class="num mbr-fonts-style display-1"><strong>07.</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            <strong>Забрать напечатанные документы</strong>
+                        </h4>
+                        @*<p class="mbr-text card-text mbr-fonts-style display-7">
+                            Mobirise is perfect for non-techies who are not familiar with the intricacies of web
+                            development.
+                        </p>*@
+                    </div>
+                </div>
+                <div class="card p-4 p-md-3 col-md-6 col-lg-3">
+                    <div class="card-box">
+                        <div class="title">
+                            <span class="num mbr-fonts-style display-1"><strong>08.</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5"><strong>Закрыть личный кабинет</strong></h4>
+                        @*<p class="mbr-text card-text mbr-fonts-style display-7">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </p>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue',
+    Arial, sans-serif;
+color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;">
+        @*<a href="https://mobirise.site/a" style="flex: 1 1;
+height: 3rem; padding-left: 1rem;">
+        </a>*@
+        <p style="flex: 0 0 auto; margin:0; padding-right:1rem;">
+            <a href="https://mobirise.site/d" style="color:#aaa;"></a>
+        </p>
+    </section>
+
+    <script src="assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="assets/popper/popper.min.js"></script>
+    <script src="assets/tether/tether.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="assets/dropdown/js/nav-dropdown.js"></script>
+    <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+    <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+    <script src="assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
+    <script src="assets/parallax/jarallax.min.js"></script>
+    <script src="assets/theme/js/script.js"></script>
+
+
+</body>
+</html>

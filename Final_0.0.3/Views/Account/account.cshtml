@@ -1,0 +1,150 @@
+﻿@model IEnumerable<Final_0._0._3.Models.FileModel>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@if (User.Identity.IsAuthenticated)
+{
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+        <meta charset='utf8'>
+        <title>Print queue</title>
+        <!--[if lt IE 9]>
+        <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <link href="~/css/StyleSheet1.css" media="screen" rel="stylesheet" type="text/css" />
+        <script src="~/js/JavaScript.js" type="text/javascript"></script>
+        <link href='/favicon.png' rel='shortcut icon'>
+        <meta content="authenticity_token" name="csrf-param" />
+        <meta content="7g3C3VijMGaov/e3Y6qcRlQ+EvzfyEmSw2QiVoirXks=" name="csrf-token" />
+    </head>
+    <body class=''>
+        <script src="~/js/JavaScript1.js" type="text/javascript"></script>
+        <div id='container'>
+            <div id='navbar'>
+                <div id='navbar' style="background-color:white; color:black">
+                    <div class='container'>
+                        <div class='navbar-header'>
+                            <button class='navbar-toggle' data-target='#bs-example-navbar-collapse-1' data-toggle='collapse' type='button'>
+                                <span class='sr-only'>Menu</span>
+                                <span class='icon-bar'></span>
+                                <span class='icon-bar'></span>
+                                <span class='icon-bar'></span>
+                            </button>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">
+                                <img src="~/assets/images/icons8-print-96-96x96.png" alt="CopyBox" style="height: 5rem;">
+                            </a>
+                        </div>
+                        <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1' style="background-color:white; color:black">
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <ul class='session' style="background-color:white; color:black">
+                                    <li class='active' style="background-color:gold;">
+                                        <a href="" style="background-color:white; color:black">
+                                            <i class='icon-user icon-white'></i>
+                                            Здравствуйте, @User.Identity.Name!
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <form method="post" asp-controller="Account" asp-action="Logout" style="background-color:white; color:black">
+                                            <button type="submit" class="btn btn-primary display-3" style="background-color:dodgerblue; color:white">Выход</button>
+                                        </form>
+
+                                    </li>
+                                </ul>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='container-inner'>
+                <aside id='sidebar'>
+                    <p id='available_credits' style="background-color: #ebebeb;">
+                        <span style="background-color: #ebebeb;">
+                            <span class='credits_amount'><img src="~/assets/images/folder.png" alt="CopyBox" style="height: 5rem;background-color: #ebebeb;"></span>
+
+                        </span>
+                    </p>
+                    <nav>
+                        <ol>
+                            <li>
+                                <a asp-area="" asp-controller="Account" asp-action="import">Добавить документ</a>
+                            </li>
+                            <li class='active'>
+                                <a asp-area="" asp-controller="Account" asp-action="account">Список документов</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Account" asp-action="history">История</a>
+                            </li>
+
+                            @*<li>
+                                <a asp-area="" asp-controller="Account" asp-action="settings">Настройки</a>
+                            </li>*@
+                        </ol>
+                    </nav>
+                </aside>
+                <div id='content'>
+
+
+                    <h1>Список документов</h1>
+                    <table class='documents'>
+                        <thead>
+
+                            <tr>
+                                <th>Название</th>
+                                <th style='text-align: center;'>
+                                    Id документа
+                                </th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                                <tr>
+                                    <td class='title'>@x.Name</td>
+                                    <td style='text-align: center;'>
+                                        @x.Id
+                                    </td>
+                                    <td>
+                                        <a @*href=@x.Path target="_blank"*@>view</a>
+                                    </td>
+                                    <td>
+                                        <a @*asp-action="DownloadFile" asp-controller="Account" asp-route-id="@x.Path"*@>Download</a>
+                                    </td>
+                                    <td><a asp-action="Delete" asp-controller="Account" asp-route-id="@x.Id" id="Delete">удалить</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+        @*<footer>
+            <div class='container'>
+                <ul>
+                    <li class='disabled'>
+                        <a href='#'>
+                            Printbox © 2021
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                </ul>
+            </div>
+        </footer>*@
+
+    </body>
+</html>
+}
+else
+{
+
+Context.Response.Redirect("/Index");
+}

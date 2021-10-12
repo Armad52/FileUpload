@@ -1,0 +1,85 @@
+﻿@model Final_0._0._3.ViewModel.RegisterViewModel
+@*<h2>Регистрация нового пользователя</h2>
+    <form method="post" asp-controller="Account" asp-action="Register">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="Email"></label><br />
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div>
+            <label asp-for="Phone"></label><br />
+            <input asp-for="Phone" />
+            <span asp-validation-for="Phone"></span>
+        </div>
+        <div>
+            <label asp-for="Password"></label><br />
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div>
+            <label asp-for="PasswordConfirm"></label><br />
+            <input asp-for="PasswordConfirm" />
+            <span asp-validation-for="PasswordConfirm"></span>
+        </div>
+        <div>
+            <input type="submit" value=" Регистрация " />
+        </div>
+    </form>*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/StyleSheet.css">
+</head>
+<body class="align">
+
+    <div class="grid">
+
+        <form method="post" asp-controller="Account" asp-action="Register" class="form login">
+
+            <header class="login__header">
+                <h3 class="login__title">Регистрация</h3>
+            </header>
+
+            <div class="login__body">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div>
+                    <input type="email" asp-for="Email" placeholder="abc@gmail.com" />
+
+                </div>
+                <div>
+                    <p></p>
+                    <input type="text" asp-for="Phone" placeholder="Телефон" />
+                    <p></p>
+                </div>
+                <div>
+                    <p></p>
+                    <input type="password" asp-for="Password" placeholder="Пароль" />
+
+                </div>
+                <div>
+                    <p></p>
+                    <input type="password" asp-for="PasswordConfirm" placeholder="Потвердить пароль" />
+
+                </div>
+                <div>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <input type="submit" value=" Регистрация " />
+                    <input type="submit" value=" Назад " a asp-area="" asp-controller="Home" asp-action="Index" />
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+</body>
+</html>
+
